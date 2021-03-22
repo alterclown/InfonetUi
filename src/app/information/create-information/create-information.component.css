@@ -1,0 +1,57 @@
+.myform-wrapper {
+  margin: 50px;
+  width: 350px;
+}
+  .mat-form-field {
+      width: 100%;
+  }
+
+  .mat-toolbar-single-row {
+      height: auto !important;
+      background: transparent;
+  }
+      button {
+          width: 30%;
+      }
+.pdf{
+  cursor: pointer;
+}
+
+#fileUpload {
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+h1 {
+  text-align: center;
+  font-size: 25px;
+  color: rgb(112, 112, 245);
+}
+
+.card {
+  min-width: 80%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+a {
+  cursor: pointer;
+}
+buttonSize{
+  justify-content: center;
+}

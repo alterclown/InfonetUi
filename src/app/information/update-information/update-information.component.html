@@ -1,0 +1,66 @@
+<br><br>
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card">
+            <mat-icon class="pdf" [routerLink]="['']">keyboard_backspace</mat-icon>
+            <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                <h1>Update Personal Information</h1>
+            </mat-card-title>
+            <mat-card-content>
+                <mat-sidenav-container>
+                    <mat-sidenav-content>
+                        <form [formGroup]="myForm" (ngSubmit)="onUpdate()">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Country</mat-label>
+                                <mat-select [(ngModel)]="country" formControlName="country"
+                                    [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                                    <mat-option *ngFor="let country of countries" [value]="country"
+                                        placeholder="Country"> {{ country }} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>City</mat-label>
+                                <mat-select [(ngModel)]="city" formControlName="city"
+                                    [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                                    <mat-option *ngFor="let city of cities" [value]="city" placeholder="City"
+                                        placeholder="City"> {{ city }} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div class="misc-bottom-padding">
+                                <mat-label>Language Skills:</mat-label>
+                                <mat-radio-group aria-label="Select an option" formControlName="languageSkills"
+                                    [ngClass]="{ 'is-invalid': submitted && f.languageSkills.errors }">
+                                    <mat-radio-button *ngFor="let language of languageArray" [value]="language"
+                                        multiple>{{language}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Date of birth"
+                                    formControlName="dateOfBirth"
+                                    [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <div class="myfilebrowser">
+                                    <mat-toolbar>
+                                        <input matInput [(ngModel)]="fileAttr" readonly name="name"
+                                            formControlName="fileUpload"
+                                            [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
+                                    </mat-toolbar>
+                                    <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)"
+                                        name="uploadFile" accept=".pdf,.doc,.docx" multiple="multiple" />
+                                </div>
+                            </mat-form-field>
+                            <div class="button-wrapper">
+                                <button mat-flat-button color="primary">Submit</button>
+                            </div>
+                        </form>
+                    </mat-sidenav-content>
+                </mat-sidenav-container>
+            </mat-card-content>
+        </mat-card>
+    </div>

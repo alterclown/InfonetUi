@@ -1,0 +1,37 @@
+<br><br>
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="content">
+    <mat-card class="card">
+      <mat-icon class="pdf" [routerLink]="['']">keyboard_backspace</mat-icon>
+      <mat-card-content>
+        <mat-sidenav-container>
+          <mat-sidenav-content>
+            <form [formGroup]="myForm">
+              <h1>View Personal Information</h1>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name" formControlName="name" readonly>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Country" formControlName="country" readonly>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="City" formControlName="city" readonly>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Language Skill" formControlName="languageSkills" readonly>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Date Of Birth" formControlName="dateOfBirth" readonly>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="File Upload" formControlName="fileUpload" readonly>
+              </mat-form-field>
+              <div class="button-wrapper">
+                <button mat-flat-button color="primary" [routerLink]="['']">Back</button>
+              </div>
+            </form>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </mat-card-content>
+    </mat-card>
+  </div>

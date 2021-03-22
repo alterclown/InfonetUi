@@ -1,0 +1,42 @@
+<div class="search-div">
+    <button mat-icon-button color="primary">
+        <mat-icon class="pdf" [routerLink]="['information/create']">add_box</mat-icon>
+    </button>
+</div>
+<mat-card>
+    <div class="mat-elevation-z8" id="pdfTable" #pdfTable>
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Language Skills</th>
+                <th>Resume</th>
+                <th>Date Of Birth</th>
+                <th>Actions</th>
+            </thead>
+            <tr *ngFor="let data of _infoList; index as i">
+                <td>{{i+1}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.country}}</td>
+                <td>{{data.city}}</td>
+                <td>{{data.languageSkills}}</td>
+                <td>{{data.resumeUpload}}</td>
+                <td>{{data.dateOfBirth | date:'d MMMM y'}}</td>
+                <td>
+                    <button mat-icon-button color="accent">
+                        <mat-icon [routerLink]="['information/dialogue/',data.informationId]">insert_drive_file
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent">
+                        <mat-icon [routerLink]="['information/update/',data.informationId]">edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn">
+                        <mat-icon (click)="deleteInfo(data.informationId)">delete_forever</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</mat-card>
