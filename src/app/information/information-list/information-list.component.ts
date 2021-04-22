@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DialogService } from 'src/app/dialouge-confirm/dialouge.service';
 import { NotificationService } from 'src/app/dialouge-confirm/notification.service';
 import { Information } from '../models/information';
@@ -12,18 +13,22 @@ import { InformationService } from '../services/information.service';
   styleUrls: ['./information-list.component.css']
 })
 export class InformationListComponent implements OnInit {
+  showSpinner = true;
   _infoList: any;
   searchText;
   infoFullList: Information[] = [];
   constructor(public dialog: MatDialog, private infoService: InformationService, private _router: Router, private notificationService: NotificationService,
-    private dialogService: DialogService) { }
+    private dialogService: DialogService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this. getData();
   }
   getData() {
+    this.spinner.show();
     this.infoService.getInformation().subscribe(data => {
       this._infoList = data;
+     // this.showSpinner = false;
+     this.spinner.hide();
     });
   }
   deleteInfo(informationId: number) {

@@ -1,3 +1,6 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color=#f61111 type="square-jelly-box" [fullScreen]="false">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
 <div class="search-div">
     <button mat-icon-button color="primary">
         <mat-icon class="pdf" [routerLink]="['information/create']">add_box</mat-icon>
@@ -5,6 +8,10 @@
 </div>
 <mat-card>
     <div class="mat-elevation-z8" id="pdfTable" #pdfTable>
+        <!-- <circle-progress *ngIf="showSpinner" [percent]="100" [radius]="100" [outerStrokeWidth]="16"
+            [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
+            [animationDuration]="10000">
+        </circle-progress> -->
         <table class="table">
             <thead>
                 <th>#</th>

@@ -35,6 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialougeConfirmComponent } from './dialouge-confirm/dialouge-confirm.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,16 @@ import { DialougeConfirmComponent } from './dialouge-confirm/dialouge-confirm.co
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule,
+    NgxSpinnerModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
